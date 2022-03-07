@@ -1,0 +1,17 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navlinks {
+    display: flex;
+    list-style: none;
+}
+
+.Navbar ul li {
+    padding-left: 10px;
+}
+
+.Navbar ul li a {
+    text-decoration: none;
+}

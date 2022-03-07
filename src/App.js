@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ import {  BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+ import {connect} from 'react-redux';
+ import Navbar from './components/Navbar/Navbar'
+ import HomePage from './components/HomePage/HomePage'
+ import Auth from './containers/Auth/Auth'
+ import LogOut from './containers/Auth/LogOut/LogOut'
+ import Service from './components/OurServices/OurService'
+ import ConnectUs from './components/ConnectWithUs/ConnectUs'
+
+
+
+class App extends Component  {
+  render () {
+
+    let routes = (
+     
+        <Routes>
+          <Route  exact path='/' element={<HomePage />} />
+          <Route  exact path='/auth' element={<Auth />} />  
+        </Routes>
+     
+    )
+
+    if (this.props.isAuthenticated) {
+      routes = (
+       <Routes>
+          <Route  path='/service' element={<Service />} />
+          <Route  path='/connectus' element={<ConnectUs />} />
+          <Route  exact path='/logout' element={<LogOut />} />
+        </Routes>
+     
+        
+      )
+      
+
+      }
+    return (
+     <Router>
+        <Navbar />
+        {routes}
+      </Router>
+        
+      
+    
+   
+      
+    
   );
+  }
+  
 }
 
-export default App;
+
+const mapStateToProps = state  => {
+  return {
+     isAuthenticated: state.token !== null
+  }
+}
+
+const mapDispatchToProps = dispatch  => {
+  return {
+    ontry: () => dispatch()
+
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps )(App);
+
