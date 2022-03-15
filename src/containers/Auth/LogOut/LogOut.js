@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 class LogOut extends Component {
+
+    
     render () {
-        return (
-            <div>
-                <h1>Heello</h1>
-            </div>
-        )
+        // let navigate = useNavigate()
+        // return (
+        //     navigate('/')
+
+   
+        // )
     }
 }
 

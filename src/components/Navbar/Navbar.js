@@ -1,33 +1,52 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+//import {connect} from 'react-redux'
+//import * as action from '../../store/actions/index.js' 
 import classes from './Navbar.module.css';
 
 
-const Navbar = () => {
+class Navbar extends Component  {
+    render() {
     return (
         <div>
             <nav className={classes.Navbar}>
 
                 <ul className={classes.Navlinks}>
-                    <li>
+                    { !this.state.isAuthenticated ? <li>
                         <Link to='/'>Home</Link>
-                    </li>
-                    <li>
+                    </li> :  <li>
                         <Link to='/service'>OurService</Link>
-                    </li>
+                    </li> 
+                    
+                    }
+
                     <li>
                         <Link to='/auth'>Login/Register</Link>
-                    </li>
+                    </li> 
+                    
+                    
                     <li>
                         <Link to='/logout'>LogOut</Link>
                     </li>
                     <li>
                         <Link to='/connectus'>ContactUs</Link>
-                    </li>
+                    </li> 
                 </ul>
             </nav>
         </div>
     )
+    }
 }
 
-export default Navbar;
+
+// const mapStateToProps = dispatch => {
+//     return {
+
+//        isAuthenticated: state.token !== null
+
+//     }
+// }
+
+//export default connect(null,  mapStateToProps)(Navbar);
+
+export default Navbar
