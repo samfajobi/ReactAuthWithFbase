@@ -3,6 +3,7 @@ import React, { Component} from 'react';
  import {  BrowserRouter as Router, Routes, Route} from 'react-router-dom'
  import {connect} from 'react-redux';
  import Navbar from './components/Navbar/Navbar'
+ import LayOut from './containers/LayOuts/LayOut';
  import HomePage from './components/HomePage/HomePage'
  import Auth from './containers/Auth/Auth'
  import LogOut from './containers/Auth/LogOut/LogOut'
@@ -37,11 +38,14 @@ class App extends Component  {
 
       }
     return (
-     <Router>
-        <Navbar />
-        {routes}
-      </Router>
-        
+     
+        <Router>
+          <LayOut>
+           {routes}
+          </LayOut>
+        </Router>
+    
+  
       
     
    

@@ -12,13 +12,14 @@ class Navbar extends Component  {
             <nav className={classes.Navbar}>
 
                 <ul className={classes.Navlinks}>
-                    { !this.state.isAuthenticated ? <li>
+                     <li>
                         <Link to='/'>Home</Link>
-                    </li> :  <li>
+                    </li> 
+                    <li>
                         <Link to='/service'>OurService</Link>
                     </li> 
                     
-                    }
+                    
 
                     <li>
                         <Link to='/auth'>Login/Register</Link>

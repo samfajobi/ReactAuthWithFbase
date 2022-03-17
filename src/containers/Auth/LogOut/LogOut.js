@@ -6,13 +6,9 @@ class LogOut extends Component {
 
     
     render () {
-        // let navigate = useNavigate()
-        // return (
-        //     navigate('/')
-
-   
-        // )
+       
     }
 }
 
 export default LogOut;
+
